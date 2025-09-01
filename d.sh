@@ -8,20 +8,6 @@ hugo clean
 echo "生成静态文件..."
 hugo
 
-# 启动本地预览
-read -p "是否启动本地预览? (y/n): " preview_choice
-if [ "$preview_choice" = "y" ] || [ "$preview_choice" = "Y" ]; then
-  echo "启动本地预览服务(按Ctrl+C停止)..."
-  hugo server -D
-fi
-
-# 提示用户检查更改
-read -p "确认要提交并推送更改吗? (y/n): " confirm
-if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
-  echo "取消部署操作."
-exit 1
-fi
-
 # 提交主仓库的更改
 echo "提交主仓库更改..."
 git add .
