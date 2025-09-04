@@ -115,13 +115,6 @@ footer.main-footer .footer-text a:hover {
 }
 
 
-/* ====== 页头图片优化样式 - 开始 ====== */
-/* 解决页头图片模糊问题 - 移除背景模糊效果 */
-.big-header-banner.header-bg .page-header {
-    backdrop-filter: none !important;
-    background: rgba(255,255,255,.3) !important;
-}
-
 /* 解决页头图片显示不完整问题 */
 #search-bg {
     min-height: 300px !important; /* 增加最小高度，确保图片完整显示 */
@@ -142,8 +135,6 @@ footer.main-footer .footer-text a:hover {
     max-width: 800px !important;
 }
 /* ====== 页头图片优化样式 - 结束 ====== */
-
-
 
 
 
