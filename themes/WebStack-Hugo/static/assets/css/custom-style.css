@@ -115,6 +115,34 @@ footer.main-footer .footer-text a:hover {
 }
 
 
+/* ====== 页头图片优化样式 - 开始 ====== */
+/* 解决页头图片模糊问题 - 移除背景模糊效果 */
+.big-header-banner.header-bg .page-header {
+    backdrop-filter: none !important;
+    background: rgba(255,255,255,.3) !important;
+}
+
+/* 解决页头图片显示不完整问题 */
+#search-bg {
+    min-height: 300px !important; /* 增加最小高度，确保图片完整显示 */
+    background-size: cover !important; /* 确保背景图片完全覆盖元素 */
+    background-position: center !important; /* 将图片居中显示 */
+    background-repeat: no-repeat !important; /* 禁止图片重复 */
+    padding-bottom: 60px !important; /* 增加底部内边距 */
+}
+
+/* 确保内容区域不会覆盖背景图片 */
+.header-big.post-top {
+    padding-bottom: 60px !important;
+}
+
+/* 调整搜索框容器的位置和大小 */
+.s-search {
+    margin-top: 20px !important;
+    max-width: 800px !important;
+}
+/* ====== 页头图片优化样式 - 结束 ====== */
+
 
 
 
