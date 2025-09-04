@@ -24,11 +24,11 @@ publishDir = "public"				# 站点静态文件保存目录
     fancybox = true                                        # 使用 Fancybox 实现图片灯箱/放大功能
 
 [params.seo]    
-    baiduhmid = ''	# 百度统计 hm.src 的 ID
+    baiduhmid = '69479dc23c81523743045ca921f8b4b9'	# 百度统计 hm.src 的 ID
     baiduSiteVer = 'codeva-cCAOSG8MBO'			# 百度HTML标签验证(baidu-site-verification)
     tj51laid = ''                        		# 51.LA 网站统计
     tj51lack = ''
-    GoogleAdsClient = ''					# Google AdSense 
+    GoogleAdsClient = 'G-N256WE73X4'					# Google AdSense 
 
 [params.qweather]
     key = "085791e805a24491b43b06cf58ab31e7"
