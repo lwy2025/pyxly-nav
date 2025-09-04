@@ -116,12 +116,48 @@ footer.main-footer .footer-text a:hover {
 
 
 /* 解决页头图片显示不完整问题 */
-#search-bg {
-    min-height: 300px !important; /* 增加最小高度，确保图片完整显示 */
-    background-size: cover !important; /* 确保背景图片完全覆盖元素 */
-    background-position: center !important; /* 将图片居中显示 */
+#search-bg.header-big.css-color {
+    /* 修复背景图片显示问题 */
+    background-size: cover !important; /* 确保图片完全覆盖容器 */
+    background-position: center !important; /* 图片居中显示 */
     background-repeat: no-repeat !important; /* 禁止图片重复 */
-    padding-bottom: 60px !important; /* 增加底部内边距 */
+    background-image: url(/assets/images/bg-b站.png) !important; /* 直接指定图片路径以提高优先级 */
+    animation: none !important; /* 禁用动画效果 */
+    transform: none !important; /* 禁用任何变形效果 */
+}
+
+/* 增强版搜索框样式，移除模糊效果 */
+.header-big #search-text {
+    -webkit-backdrop-filter: none !important; /* 移除WebKit内核浏览器的模糊效果 */
+    backdrop-filter: none !important; /* 移除标准模糊效果 */
+    background-color: rgba(255, 255, 255, 0.8) !important; /* 半透明背景，提高清晰度 */
+    color: #333 !important; /* 文字颜色更清晰 */
+}
+
+.io-black-mode .header-big #search-text {
+    background-color: rgba(0, 0, 0, 0.8) !important; /* 深色模式下的半透明背景 */
+    color: #fff !important;
+}
+
+/* 确保搜索框不影响背景图片显示 */
+.header-big .s-search {
+    background: transparent !important;
+    margin-top: 20px !important;
+    max-width: 800px !important;
+}
+
+/* 移除任何可能影响图片显示的遮罩层 */
+.header-big.bg-gradual:before {
+    display: none !important; /* 隐藏渐变遮罩层 */
+}
+
+/* 调整整体容器，确保图片完整显示 */
+#search-bg {
+    min-height: 350px !important; /* 足够的高度 */
+    height: auto !important;
+    padding-top: 100px !important;
+    padding-bottom: 80px !important;
+    overflow: visible !important;
 }
 
 /* 确保内容区域不会覆盖背景图片 */
@@ -129,14 +165,15 @@ footer.main-footer .footer-text a:hover {
     padding-bottom: 60px !important;
 }
 
-/* 调整搜索框容器的位置和大小 */
-.s-search {
-    margin-top: 20px !important;
-    max-width: 800px !important;
+/* 确保在所有屏幕尺寸上都能正常显示 */
+@media screen and (max-width: 767px) {
+    #search-bg {
+        padding-top: 80px !important;
+        padding-bottom: 60px !important;
+        min-height: 280px !important;
+    }
 }
 /* ====== 页头图片优化样式 - 结束 ====== */
-
-
 
 
 
