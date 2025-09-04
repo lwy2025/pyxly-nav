@@ -115,72 +115,96 @@ footer.main-footer .footer-text a:hover {
 }
 
 
-/* 解决页头图片显示不完整问题 */
+/* 解决页头图片显示不完整问题 - B站风格优化 */
+
+/* 关键修复：使用B站风格的背景图片显示 */
 #search-bg.header-big.css-color {
-    /* 修复背景图片显示问题 */
-    background-size: cover !important; /* 确保图片完全覆盖容器 */
-    background-position: center !important; /* 图片居中显示 */
+    /* 核心样式 - 确保图片清晰完整显示 */
+    background-size: 100% auto !important; /* 宽度充满，高度自动，保持原始比例 */
+    background-position: center top !important; /* 图片居中靠上显示 */
     background-repeat: no-repeat !important; /* 禁止图片重复 */
-    background-image: url(/assets/images/bg-b站.png) !important; /* 直接指定图片路径以提高优先级 */
-    animation: none !important; /* 禁用动画效果 */
-    transform: none !important; /* 禁用任何变形效果 */
+    background-image: url(/assets/images/bg-b站.png) !important; /* 直接指定图片路径 */
+    
+    /* 移除干扰效果 */
+    animation: none !important; /* 完全禁用动画 */
+    transform: none !important; /* 禁用任何变形 */
+    filter: none !important; /* 禁用任何滤镜效果，确保图片清晰 */
+    -webkit-filter: none !important; /* 针对WebKit内核浏览器 */
 }
 
-/* 增强版搜索框样式，移除模糊效果 */
+/* 优化整体容器尺寸 - 模仿B站首页高度 */
+#search-bg {
+    min-height: 200px !important; /* 适中的高度，避免过高 */
+    max-height: 280px !important; /* 最大高度限制 */
+    height: auto !important;
+    padding-top: 60px !important; /* 调整内边距 */
+    padding-bottom: 40px !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+/* 移除渐变遮罩层 - 确保图片完全可见 */
+.header-big.bg-gradual:before {
+    display: none !important;
+}
+
+/* 修复搜索框样式 - 移除模糊效果 */
 .header-big #search-text {
-    -webkit-backdrop-filter: none !important; /* 移除WebKit内核浏览器的模糊效果 */
-    backdrop-filter: none !important; /* 移除标准模糊效果 */
-    background-color: rgba(255, 255, 255, 0.8) !important; /* 半透明背景，提高清晰度 */
-    color: #333 !important; /* 文字颜色更清晰 */
+    -webkit-backdrop-filter: none !important; /* 完全移除WebKit内核的模糊 */
+    backdrop-filter: none !important; /* 完全移除标准模糊 */
+    background-color: rgba(255, 255, 255, 0.95) !important; /* 几乎不透明的背景，提高清晰度 */
+    color: #333 !important; /* 文字颜色 */
+    border: 1px solid #e0e0e0 !important; /* 轻微边框 */
 }
 
+/* 深色模式下的搜索框 */
 .io-black-mode .header-big #search-text {
-    background-color: rgba(0, 0, 0, 0.8) !important; /* 深色模式下的半透明背景 */
+    background-color: rgba(30, 30, 30, 0.95) !important;
     color: #fff !important;
+    border: 1px solid #444 !important;
 }
 
-/* 确保搜索框不影响背景图片显示 */
+/* 优化搜索框容器 - 居中显示 */
 .header-big .s-search {
     background: transparent !important;
-    margin-top: 20px !important;
+    margin: 0 auto !important;
     max-width: 800px !important;
-}
-
-/* 移除任何可能影响图片显示的遮罩层 */
-.header-big.bg-gradual:before {
-    display: none !important; /* 隐藏渐变遮罩层 */
-}
-
-/* 调整整体容器，确保图片完整显示 */
-#search-bg {
-    min-height: 350px !important; /* 足够的高度 */
-    height: auto !important;
-    padding-top: 100px !important;
-    padding-bottom: 80px !important;
-    overflow: visible !important;
+    position: relative !important;
+    z-index: 10 !important;
 }
 
 /* 确保内容区域不会覆盖背景图片 */
 .header-big.post-top {
-    padding-bottom: 60px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
-/* 确保在所有屏幕尺寸上都能正常显示 */
+/* 移除任何可能导致图片裁剪的样式 */
+.header-big {
+    margin-top: -75px !important;
+    position: relative !important;
+}
+
+/* 响应式适配 - 确保在所有设备上都能良好显示 */
 @media screen and (max-width: 767px) {
     #search-bg {
-        padding-top: 80px !important;
-        padding-bottom: 60px !important;
-        min-height: 280px !important;
+        min-height: 180px !important;
+        max-height: 220px !important;
+        padding-top: 50px !important;
+        padding-bottom: 30px !important;
+    }
+    
+    #search-bg.header-big.css-color {
+        background-size: cover !important; /* 移动端使用cover确保图片充满 */
     }
 }
+
+/* 大屏幕优化 */
+@media screen and (min-width: 1200px) {
+    #search-bg {
+        min-height: 240px !important;
+        max-height: 300px !important;
+    }
+}
+
 /* ====== 页头图片优化样式 - 结束 ====== */
-
-
-
-
-
-
-
-
-
-
