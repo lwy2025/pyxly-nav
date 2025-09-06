@@ -184,18 +184,115 @@ footer.main-footer .footer-text a:hover {
     margin-top: -75px !important;
     position: relative !important;
 }
-
-/* 响应式适配 - 确保在所有设备上都能良好显示 */
+             
+/* 为移动端添加最优先级的样式 - 使用更具体的选择器 */
 @media screen and (max-width: 767px) {
-    #search-bg {
-        min-height: 180px !important;
-        max-height: 220px !important;
-        padding-top: 50px !important;
-        padding-bottom: 30px !important;
+    /* 使用更具体的选择器和 !important 确保样式优先 */
+    html body #search-bg.header-big.css-color,
+    html body #search-bg.header-big,
+    html body .header-big.bg-gradual {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        opacity: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        z-index: -1 !important;
+        background: none !important;
+        background-image: none !important;
     }
     
+    /* 重置所有相关容器的尺寸和边距 */
+    html body #search-bg {
+        min-height: 0 !important;
+        max-height: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: none !important;
+        background-image: none !important;
+    }
+    
+    /* 为内容区添加上边距，确保不紧贴顶部 */
+    html body .header-big {
+        margin-top: 0 !important;
+        margin-bottom: 40px !important;
+        position: relative !important;
+        height: auto !important;
+        overflow: visible !important;
+        min-height: 0 !important;
+        background: none !important;
+    }
+    
+    /* 调整搜索框样式 */
+    html body .header-big .s-search {
+        position: static !important;
+        transform: none !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        z-index: 10 !important;
+        padding-top: 20px !important;
+    }
+    
+    /* 确保头部导航栏正常显示 */
+    html body .big-header-banner .page-header {
+        position: relative !important;
+        z-index: 20 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* 修复移动端导航菜单不明显的问题 - 修改链接颜色 */
+    html body .big-header-banner .page-header .navbar-nav>li>a,
+    html body .big-header-banner .navbar-menu a:not(.dropdown-item) {
+        color: #333 !important; /* 将链接颜色改为深灰色，与白色背景形成对比 */
+    }
+    
+    /* 修复移动端导航菜单悬停颜色 */
+    html body .big-header-banner .page-header .navbar-nav>li>a:hover,
+    html body .big-header-banner .navbar-menu a:not(.dropdown-item):hover {
+        color: #dc3545 !important; /* 悬停时使用红色 */
+    }
+    
+    /* 修复移动端导航图标颜色 */
+    html body .big-header-banner .header-mini-btn path {
+        stroke: #333 !important; /* 将图标颜色改为深灰色 */
+    }
+    
+    html body .big-header-banner .header-mini-btn label:hover path {
+        stroke: #dc3545 !important; /* 图标悬停时使用红色 */
+    }
+    
+    /* 确保内容区域正常显示并有足够的间距 */
+    html body .header-big.post-top {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+/* 为大屏幕保留原有的B站风格图片 */
+@media screen and (min-width: 768px) {
     #search-bg.header-big.css-color {
-        background-size: cover !important; /* 移动端使用cover确保图片充满 */
+        background-size: 100% auto !important;
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+        background-image: url(/assets/images/bg-b站.png) !important;
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+    
+    #search-bg {
+        min-height: 200px !important;
+        max-height: 280px !important;
+        height: auto !important;
+        padding-top: 60px !important;
+        padding-bottom: 40px !important;
+        overflow: hidden !important;
+        position: relative !important;
     }
 }
 
@@ -206,5 +303,3 @@ footer.main-footer .footer-text a:hover {
         max-height: 300px !important;
     }
 }
-
-/* ====== 页头图片优化样式 - 结束 ====== */
